@@ -1,0 +1,115 @@
+%    YAR Writer, Resume Generator 
+%    Copyright(C)2020 John Hart <john@hackade.com>
+%
+%    This program is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%
+%    This program is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%	
+%    Author John Hart <john@hackade.com>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\version{__VERSION}   
+\special{pdf:trailerid [(__LONGVERSION)(__LONGVERSION)]}
+
+\input epsf
+\XeTeXuseglyphmetrics=1
+
+\xetexheader
+\raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                                PDF Metadata                            %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\pdfheader#1#2#3{%
+\special{pdf: docinfo << %
+/Author (#1) %
+/Title (#1's Resume) %
+/Keywords (CV, #1, #2) %
+/BaseURL (#3) %
+>>}}
+
+% External hyperlinks.
+\def\LinkHrefExtText#1#2{\special{html:<a href="#1">}#2\special{html:</a>}}
+\def\LinkHrefExt#1{\LinkHrefExtText{#1}{#1}}
+\def\LinkHrefExtTT#1{\LinkHrefExtText{#1}{{\tt#1}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Controlling Hypenation                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\righthyphenmin=90
+\hyphenpenalty 100000
+\hyphenation{ana-lysis pot-able med-ium com-mer-cial}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%                       Fonts                       %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\font\headfnt= cmbx10 scaled \magstep1
+\font\cf = cmbx10 scaled 500
+\font\tiny = cmbx6 
+\font\sc = cmcsc10
+\font\subhead = cmr8
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%                       Macros                      %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\monthname{%
+\ifcase \month
+  \or Janurary\or Febuary\or March\or April\or May%
+  \or June \or July\or August\or September\or October%
+  \or November\or December%
+\fi}
+\def\date{\monthname\space\number\year}%\number\day\space\monthname\space\number\year}
+
+
+% Resume formatting
+\def\qrcode{\epsfxsize=0.3in\epsfbox{qr_resume.eps}}
+\def\bull{{--}}%\char"2022}} %$\circ$}
+\def\sec#1{\vskip1em\hbox{\headfnt{#1}}\vskip 0.2em}
+\def\school#1#2#3{\vskip0.3em{{\bf #1},\hskip0.5em #2, #3\hfil}}
+\def\degree#1#2{\itemitem\bull #1, awarded #2}
+\def\degreeflex#1#2{{\hskip 4em{\bull\hskip0.5em#1\hfill #2\hskip4.4em}}\vskip 0.2em}
+%\def\business#1#2#3{{{\bf #1},\hskip0.5em #2, #3\hfil}\vskip 0.2em}
+\def\business#1#2#3{\vskip0.25em\line{\hskip 2em{{\bf #1},\hskip0.5em #2, #3}\hfil}}
+%\def\job#1#2{\vskip0.4em\line{\hskip4em{\bull\hskip0.2em{\it#1},\space#2}\hfil}}
+\def\job#1#2{\itemitem\bull{\subhead #1},\space{\subhead #2}\par}
+\long\def\desc#1{{\noindent\leftskip 6em \rightskip 1em#1 \par}\vskip 0.2em}
+\def\accom#1#2#3{{\parindent-1em\leftskip3em\rightskip1em\bull\hskip0.5em#1, {\it#2}, #3\par}\vskip 0.3em}
+\def\article#1{{\parindent-1em\leftskip3em\rightskip1em\bull\hskip0.5em#1\par}\vskip 0.3em}
+
+\def\tech#1#2{{\parindent-1em\leftskip3em\rightskip1em\bull\hskip0.5em#1---#2 years\par}\vskip 0.3em}
+\def\para#1{\vskip0.4em\vbox{{\noindent\leftskip 2em \rightskip 1em#1 \par}}}
+
+%\def\accom#1#2#3{{\itemitem\bull\hskip0.5em#1, {\it #2}, #3\par}}
+%\def\person#1#2#3#4#5#6{\itemitem\bull #1, {\it#2, #3}, #4, #5, #6}
+%\def\qrcode{}%\epsfbox{qrcode.eps}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%                           FOOTER                              %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\resumedevfooter#1{\footline{\hfil\cf\date\hfill#1 ver.\null\version\hfill\qrcode}}
+\def\simplefooter#1{\footline{\hfil\cf\date\space\space #1}}
+\def\resumefooter{\footline{\cf\date\hfill\shortname\null\hfill\qrcode}}
+
+%%%%% We can also insert images in to the footer
+\def\resumeimagefooter#1{\footline{\cf\epsfxsize=0.5in\qrcode\hfil%
+\space\char"00A9 \date\space\space\epsfxsize=0.1in\epsfbox{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%                           HEADER                              %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\resumeheader{\line{{\bf\name}\hfill}%
+\line{\street\hfil\phone}%
+\line{\city,\space\state\space\zipcode\hfil\LinkHrefExtText{mailto:\email?subject=Meeting}{\email}}%
+\vskip1mm%
+\hrule%
+\vskip 1em}
+\rm

@@ -1,0 +1,78 @@
+%    YAR Writer, Resume Generator 
+%    Copyright(C)2020 John Hart <john@hackade.com>
+%
+%    This program is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%
+%    This program is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%	
+%    Author John Hart <john@hackade.com>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input "./resume_style.tex"
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Personal Info
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\myurl{https://github.com/jhart/resume}
+\def\name{John Doe}
+\def\shortname{J.\null Doe}
+\def\email{jdoe@example.com}
+\def\phone{555--555--5555}
+\def\street{123 Fake St.}
+\def\city{Springfield}
+\def\state{{\sc{usa}}}
+\def\zipcode{12345}
+
+\pdfheader{\name}{My keywords}{https://example.com}
+
+
+
+\resumeheader
+
+%\resumefooter
+%\simplefooter{\shortname}
+\resumedevfooter{\myurl}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%          RESUME BEGINS HERE          %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sec{Work History}
+\vskip 0.3em
+\business{Company 1}{City}{State}
+	\job{Job Role 1}{Start--Present?}
+		\desc{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\business{Company 2}{City}{State}
+	\job{Job 2}{Start--end}
+		\desc{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+	\job{Job 3}{Start--End}
+		\desc{Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.} 
+%%%%%%%%%Example for FORCING A PAGE BREAK HERE%%%%%%%%%%%%%%%%%%%
+%\vfil\eject
+%\vskip 0.3em 
+%%%%%%%%%%%
+\sec{Education}
+\school{School Name}{School City}{State}
+	\degree{{\it Degree 1}, Master of Degree Title}{01/1876}
+	\degree{{\it Degree 2}, Batchelor of Degree, 4.0{\tiny{GPA}}}{01/1880}
+\school{school 2 Name}{City}{State}
+	\degree{3.3{\tiny{GPA}}}{06/1997}
+\sec{Publications}
+\article{dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip }
+\article{dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip }
+\article{dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip }
+\vskip 4em
+
+\it References available.
+
+\end
+
