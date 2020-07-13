@@ -15,7 +15,7 @@ Things to know, this is a TeX(not LaTeX) generator and as such you need to know 
 
 # Files Included:
 * ./config.yaml - If you will be pushing to a server you can edit this to to enable the "make publish" directive work. 
-* ./resume.tex - Edit this to add your work history, education, et cetera. 
+* ./src/resume.tex - Edit this to add your work history, education, et cetera. 
 
 # Usage
 1. Install the required software
