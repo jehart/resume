@@ -24,7 +24,7 @@ Things to know, this is a TeX(not LaTeX) generator and as such you need to know 
  - pdf2htmlEX, yq, qrencode - installed from homebrew on MacOS
  - html-minifier is a node program and cam be installed via npm
 2. Customize
- - Edit personal.yaml 
+ - Edit config.yaml 
  - Edit resume.tex
 3. Build
  - to build your new resume type: ``make``
