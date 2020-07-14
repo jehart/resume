@@ -19,13 +19,13 @@ Things to know, this is a TeX(not LaTeX) generator and as such you need to know 
 
 # Usage
 1. Install the required software
- - maxtex2020 - or your favorite TeX distribution
+ - [mactex2020](https://tug.org/mactex/) - or your favorite TeX distribution
  - m4, git ( on MacOS included as part of XCode command like tools )
- - pdf2htmlEX, yq, qrencode - installed from homebrew on MacOS
- - html-minifier is a node program and cam be installed via npm
-2. Customize
- - Edit config.yaml 
- - Edit resume.tex
+ - pdf2htmlEX, yq, qrencode - installed from [homebrew](https://brew.sh) on MacOS
+ - [html-minifier](https://www.npmjs.com/package/html-minifier) is a node program and cam be installed via npm
+2. Customize, with your favorite text editor
+ - Edit ``./config.yaml`` 
+ - Edit ``./src/resume.tex``
 3. Build
  - to build your new resume type: ``make dist``
  - This will build a directory called ./dist/ and the resulting resume(s) will be in this folder
