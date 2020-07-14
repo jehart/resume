@@ -14,6 +14,7 @@ dnl
 dnl    You should have received a copy of the GNU General Public License
 dnl    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 dnl
+dnl
 dnl    Author John Hart <john@hackade.com>
 dnl
 define(`__VERSION',esyscmd(/bin/sh ./conf/version.sh |tr -d '\n'))dnl
@@ -21,5 +22,4 @@ define(`__LONGVERSION',esyscmd(git rev-parse HEAD| cut -c25-40 |tr -d '\n'))dnl
 define(`xetexheader',`special{pdf: docinfo << 
 /Creator (https://github/jehart/resume) 
 /Producer (YAR v1.0)
->>}')
-dnl
+>>}')dnl

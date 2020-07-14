@@ -1,0 +1,11 @@
+resume.bak.pdf
+resume.dvi
+resume.pdf*
+resume?.pdf
+dist/*
+src/resume.html
+src/resume.log
+src/resume.min.html
+src/resume_style.tex
+src/qr_resume.png
+src/qr_resume.eps

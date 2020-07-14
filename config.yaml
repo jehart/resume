@@ -26,5 +26,8 @@ staging_path: /home/exampleinstalluser
 # Local distribution path (usually ./dist)
 local_path: ./dist
 
+# Archive Path
+archive_path: ./archive
+
 # My remote server name
 server: example.com

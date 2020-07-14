@@ -21,6 +21,7 @@ SERVER=`yq r ./config.yaml server`
 INSTALL_PATH=`yq r ./config.yaml install_path`
 STAGING_PATH=`yq r ./config.yaml staging_path`
 LOCAL_PATH=`yq r ./config.yaml local_path`
+ARCHIVE_PATH =`yq r ./config.yaml archive_path`
 FILE = resume
 
 all: $(SUBDIRS)
@@ -30,11 +31,16 @@ dist: all
 	cp ./src/$(FILE).pdf $(LOCAL_PATH)
 	cp ./src/$(FILE).min.html $(LOCAL_PATH)/$(FILE).html
 
-publish: dist
+archive: dist
+	mkdir -p $(ARCHIVE_PATH)
+	cp $(LOCAL_PATH)/$(FILE).pdf $(ARCHIVE_PATH)/$(FILE).`date +%Y%M%d%H%M%S`.pdf
+	cp $(LOCAL_PATH)/$(FILE).html $(ARCHIVE_PATH)/$(FILE).`date +%Y%M%d%H%M%S`.html
+	
+publish: archive
 	ssh $(SERVER) mkdir -p $(STAGING_PATH)
 	scp $(LOCAL_PATH)/* $(SERVER):$(STAGING_PATH)/
-	ssh $(SERVER) install -b $(STAGING_PATH)/* $(INSTALL_PATH)/
-	 
+	ssh $(SERVER) install -b $(STAGING_PATH)/* $(INSTALL_PATH)/	 
+
 distclean: 
 	for subdir in $(SUBDIRS); do \
 		target=`echo $@ | sed s/-recursive//`; \
@@ -54,4 +60,3 @@ $(SUBDIRS):
 	
 
 .PHONY: clean distclean all publish subdirs $(SUBDIRS)
-
