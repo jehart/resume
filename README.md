@@ -27,8 +27,8 @@ Things to know, this is a TeX(not LaTeX) generator and as such you need to know 
  - Edit config.yaml 
  - Edit resume.tex
 3. Build
- - to build your new resume type: ``make``
- - There are a number of build targets but the default is will build a directory called ./dist/ and the resulting resume will be in this folder
+ - to build your new resume type: ``make dist``
+ - This will build a directory called ./dist/ and the resulting resume(s) will be in this folder
 
 <!--# Resume code usage TODO: this needs to be written with examples
 \bull
