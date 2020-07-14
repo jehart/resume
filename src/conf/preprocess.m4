@@ -23,3 +23,4 @@ define(`xetexheader',`special{pdf: docinfo <<
 /Creator (https://github/jehart/resume) 
 /Producer (YAR v1.0)
 >>}')dnl
+dnl
