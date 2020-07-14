@@ -1,3 +1,5 @@
+I would really like to know if this is useful to anyone please let me know any feedback!
+
 # YAR Writer, Resume Generator - Your Last Resume
 If you are a bit retrotechno and you want to show off your TeX skills(none of those LaTeX styles here) YAR Writer might be for you.
 After needing to put a resume together and recently needing to update it, I decided that I really disliked all of the tools out there that I could find, I decided to roll make my own.
