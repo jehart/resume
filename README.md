@@ -21,7 +21,7 @@ Things to know, this is a TeX(not LaTeX) generator and as such you need to know 
 
 # Usage
 1. Install the required software
- - [mactex2020](https://tug.org/mactex/) - or your favorite TeX distribution
+ - [mactex](https://tug.org/mactex/) - or your favorite TeX distribution
  - m4, git ( on MacOS included as part of XCode command like tools )
  - pdf2htmlEX, yq, qrencode - installed from [homebrew](https://brew.sh) on MacOS
  - [html-minifier](https://www.npmjs.com/package/html-minifier) is a node program and cam be installed via npm
